@@ -3,16 +3,16 @@ const express=require('express')
 const app=express()
 app.use(express.json())
 
-app.post('/signup',(req,res)=>{
-    const{username,email}=req.body
+app.post('/login',(req,res)=>{
+    const{email,password}=req.body
 
-    if(!username || username.length===0){
-        return res.status(400).json({message:"Username invalid"})
+    if(!password || password.length===0){
+        return res.status(400).json({message:"Password cannot be empty"})
     }
     if(!email || email.length===0){
-        return res.status(400).json({message:"Username invalid"})
+        return res.status(400).json({message:"Email cannot be empty"})
     }
-    res.send("User registered successfully")
+    res.send("User logged in successfully")
 })
 
 app.listen(3000,()=>{
